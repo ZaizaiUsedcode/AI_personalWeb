@@ -1,7 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
-import { GraduationCap, Languages, Download } from 'lucide-react';
+import { GraduationCap, Languages } from 'lucide-react';
 
 export default function About() {
   const { t, language } = useLanguage();
@@ -69,16 +69,6 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="mt-10 text-center">
-          <a
-            href="/resume.pdf"
-            className="inline-flex items-center gap-2 bg-white text-orange-500 px-5 py-2.5 rounded-lg border border-orange-200 hover:border-orange-300 transition-colors text-sm font-medium"
-          >
-            <Download className="w-4 h-4" />
-            {t('下载简历', 'Download Resume')}
-          </a>
         </div>
       </div>
     </section>
