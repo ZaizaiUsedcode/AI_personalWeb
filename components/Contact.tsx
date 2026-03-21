@@ -31,12 +31,12 @@ export default function Contact() {
           {t('联系我', 'Contact')}
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-8 items-stretch">
+          <div className="flex h-full flex-col gap-4">
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon;
               return (
-                <div key={index} className="flex items-center gap-3 bg-white rounded-xl p-4 border border-orange-100">
+                <div key={index} className="flex flex-1 items-center gap-3 bg-white rounded-xl p-4 border border-orange-100">
                   <IconComponent className="w-5 h-5 text-orange-500 flex-shrink-0" />
                   <div>
                     <p className="text-xs text-stone-500">{language === 'zh' ? info.label.zh : info.label.en}</p>
@@ -47,7 +47,7 @@ export default function Contact() {
             })}
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="flex h-full flex-col gap-4">
             <input
               type="text"
               name="name"
@@ -73,11 +73,11 @@ export default function Contact() {
               onChange={handleChange}
               required
               rows={4}
-              className="w-full px-4 py-2.5 bg-white border border-orange-100 rounded-lg focus:ring-2 focus:ring-orange-200 focus:border-orange-300 text-sm resize-none"
+              className="w-full flex-1 px-4 py-2.5 bg-white border border-orange-100 rounded-lg focus:ring-2 focus:ring-orange-200 focus:border-orange-300 text-sm resize-none"
             />
             <button
               type="submit"
-              className="w-full bg-orange-500 text-white py-2.5 rounded-lg hover:bg-orange-600 transition-colors text-sm font-medium flex items-center justify-center gap-2"
+              className="mt-auto w-full bg-orange-500 text-white py-2.5 rounded-lg hover:bg-orange-600 transition-colors text-sm font-medium flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
               {t('发送', 'Send')}

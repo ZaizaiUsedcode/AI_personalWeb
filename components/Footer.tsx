@@ -12,9 +12,9 @@ export default function Footer() {
           © 2024 Jessie Chen · {t('保留所有权利', 'All rights reserved')}
         </p>
         <div className="flex gap-4 text-stone-500">
-          <a href="#" className="hover:text-orange-500 transition-colors">LinkedIn</a>
-          <a href="https://github.com" className="hover:text-orange-500 transition-colors">GitHub</a>
-          <a href="https://vercel.com/jessies-projects-30765941" className="hover:text-orange-500 transition-colors">Vercel</a>
+          <a href="https://www.linkedin.com/in/yan-chen-50120527a/" className="hover:text-orange-500 transition-colors">LinkedIn</a>
+          <a href="https://github.com/ZaizaiUsedcode?tab=repositories" className="hover:text-orange-500 transition-colors">GitHub</a>
+          <a href="https://vercel.com/jessies-projects-30765941/ai-personal-web" className="hover:text-orange-500 transition-colors">Vercel</a>
         </div>
       </div>
     </footer>

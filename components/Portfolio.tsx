@@ -120,7 +120,9 @@ export default function Portfolio() {
             return (
               <div
                 key={index}
-                className="group bg-white rounded-2xl overflow-hidden border border-orange-100 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-orange-300"
+                className={`group flex flex-col overflow-hidden rounded-2xl border border-orange-100 bg-white transition-all duration-300 hover:scale-105 hover:border-orange-300 hover:shadow-xl ${
+                  isExpanded ? 'h-auto' : 'h-[21.5rem] md:h-[24rem]'
+                }`}
               >
                 {/* 项目头部 */}
                 <div className="h-32 bg-orange-50 flex items-center justify-center relative overflow-hidden group-hover:bg-orange-100 transition-colors">
@@ -130,7 +132,7 @@ export default function Portfolio() {
                   />
                 </div>
 
-                <div className="p-5">
+                <div className="flex flex-1 flex-col p-5">
                   {/* 标题和公司 */}
                   <h3 className="font-semibold mb-1 text-stone-800 group-hover:text-orange-600 transition-colors">
                     {project.title}
@@ -139,7 +141,7 @@ export default function Portfolio() {
                   <p className="text-xs text-stone-500 mb-3">{project.period}</p>
 
                   {/* 简短描述 */}
-                  <p className="text-sm text-stone-600 mb-4 leading-relaxed">
+                  <p className="mb-4 text-sm leading-relaxed text-stone-600">
                     {project.description}
                   </p>
 
@@ -161,7 +163,7 @@ export default function Portfolio() {
                   )}
 
                   {/* 技术标签 */}
-                  <div className="flex flex-wrap gap-1.5 mb-3">
+                  <div className="mb-3 flex flex-wrap gap-1.5">
                     {project.tags.slice(0, isExpanded ? project.tags.length : 3).map((tag, i) => (
                       <span
                         key={i}
@@ -180,7 +182,7 @@ export default function Portfolio() {
                   {/* 展开/折叠按钮 */}
                   <button
                     onClick={() => setExpandedProject(isExpanded ? null : index)}
-                    className="w-full flex items-center justify-center gap-1 text-xs text-orange-600 hover:text-orange-700 font-medium py-2 rounded-lg hover:bg-orange-50 transition-colors"
+                    className="mt-auto flex w-full items-center justify-center gap-1 rounded-lg py-2 text-xs font-medium text-orange-600 transition-colors hover:bg-orange-50 hover:text-orange-700"
                   >
                     {isExpanded ? (
                       <>
