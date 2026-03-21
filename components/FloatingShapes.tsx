@@ -5,7 +5,13 @@ import { useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-function Shape({ position, scale, color }: { position: [number, number, number]; scale: number; color: string }) {
+type ShapeProps = {
+  position: readonly [number, number, number];
+  scale: number;
+  color: string;
+};
+
+function Shape({ position, scale, color }: ShapeProps) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   // 随机旋转速度
