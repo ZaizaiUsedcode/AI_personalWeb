@@ -6,13 +6,6 @@ import { GraduationCap, Languages } from 'lucide-react';
 export default function About() {
   const { t, language } = useLanguage();
 
-  const stats = [
-    { value: '2', label: { zh: '年经验', en: 'Years' } },
-    { value: '6+', label: { zh: '项目', en: 'Projects' } },
-    { value: '4', label: { zh: '公司', en: 'Companies' } },
-    { value: '100+', label: { zh: '用户', en: 'Users' } },
-  ];
-
   return (
     <section id="about" className="py-20 px-6">
       <div className="max-w-4xl mx-auto">
@@ -20,8 +13,8 @@ export default function About() {
           {t('关于我', 'About Me')}
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          <div className="space-y-6">
+        <div className="flex justify-center">
+          <div className="flex max-w-2xl flex-col justify-center space-y-6">
             <div className="bg-white rounded-2xl p-6 border border-orange-100">
               <div className="flex items-center gap-2 mb-4">
                 <GraduationCap className="w-5 h-5 text-orange-500" />
@@ -52,22 +45,6 @@ export default function About() {
                 )}
               </p>
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-5 text-center border border-orange-100"
-              >
-                <div className="text-3xl font-bold text-orange-500 mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-stone-600 text-sm">
-                  {language === 'zh' ? stat.label.zh : stat.label.en}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
