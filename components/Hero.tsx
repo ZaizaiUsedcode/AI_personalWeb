@@ -14,7 +14,11 @@ export default function Hero() {
   const { t, language } = useLanguage();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-14 px-6 overflow-hidden">
+    <section
+      id="home"
+      data-section="home"
+      className="relative min-h-screen flex items-center justify-center pt-14 px-6 overflow-hidden"
+    >
       {/* Three.js 背景 */}
       <ThreeBackground />
 

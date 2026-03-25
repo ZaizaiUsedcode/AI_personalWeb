@@ -17,7 +17,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 px-6">
+    <section id="services" data-section="services" className="py-20 px-6">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">
           {language === 'zh' ? '服务' : 'Services'}

@@ -37,7 +37,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 px-6 bg-orange-50/30">
+    <section id="skills" data-section="skills" className="py-20 px-6 bg-orange-50/30">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">
           {t('技能专长', 'Skills')}

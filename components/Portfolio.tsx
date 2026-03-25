@@ -108,7 +108,7 @@ export default function Portfolio() {
   const title = language === 'zh' ? '项目作品' : 'Projects';
 
   return (
-    <section id="portfolio" className="py-20 px-6 bg-orange-50/30">
+    <section id="portfolio" data-section="portfolio" className="py-20 px-6 bg-orange-50/30">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">{title}</h2>
 
@@ -120,6 +120,7 @@ export default function Portfolio() {
             return (
               <div
                 key={index}
+                data-project-id={project.title}
                 className={`group flex flex-col overflow-hidden rounded-2xl border border-orange-100 bg-white transition-all duration-300 hover:scale-105 hover:border-orange-300 hover:shadow-xl ${
                   isExpanded ? 'h-auto' : 'h-[21.5rem] md:h-[24rem]'
                 }`}

@@ -7,10 +7,12 @@ import Services from '@/components/Services';
 import Portfolio from '@/components/Portfolio';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import VisitorBehaviorTracker from '@/components/VisitorBehaviorTracker';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <VisitorBehaviorTracker />
       <Navigation />
       <Hero />
       <About />

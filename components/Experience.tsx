@@ -69,7 +69,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6">
+    <section id="experience" data-section="experience" className="py-20 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">
           {language === 'zh' ? '工作经历' : 'Experience'}
