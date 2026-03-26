@@ -10,10 +10,11 @@ export default function Navigation() {
 
   const navItems = [
     { name: { zh: '主页', en: 'Home' }, href: '#home' },
-    { name: { zh: '关于', en: 'About' }, href: '#about' },
+    { name: { zh: '背景', en: 'Background' }, href: '#background' },
     { name: { zh: '技能', en: 'Skills' }, href: '#skills' },
     { name: { zh: '经历', en: 'Experience' }, href: '#experience' },
     { name: { zh: '项目', en: 'Projects' }, href: '#portfolio' },
+    { name: { zh: '关于', en: 'About' }, href: '#about' },
     { name: { zh: '联系', en: 'Contact' }, href: '#contact' },
   ];
 

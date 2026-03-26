@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import FloatingContactButtonClient from "@/components/FloatingContactButtonClient";
 
 export const metadata: Metadata = {
   title: "Jessie Chen - Frontend Developer Portfolio | React/Next.js",
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+          <FloatingContactButtonClient />
+        </LanguageProvider>
       </body>
     </html>
   );
