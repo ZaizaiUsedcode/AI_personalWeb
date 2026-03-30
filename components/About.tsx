@@ -80,7 +80,6 @@ export default function About() {
       }
 
       hasLoadedArrivalIntroRef.current = true;
-      setIsSelected(true);
 
       let snapshot: VisitorBehaviorPayload | null = null;
 
