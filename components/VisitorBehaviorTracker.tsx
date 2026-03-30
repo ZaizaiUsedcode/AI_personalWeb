@@ -136,7 +136,7 @@ export default function VisitorBehaviorTracker() {
         });
     };
 
-    const timer = window.setInterval(sendHintAnalysis, 10000);
+    const timer = window.setInterval(sendHintAnalysis, 20000);
 
     return () => {
       window.clearInterval(timer);

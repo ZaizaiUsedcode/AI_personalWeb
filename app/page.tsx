@@ -5,8 +5,7 @@ import Background from '@/components/Background';
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import Services from '@/components/Services';
-import Portfolio from '@/components/Portfolio';
-import Contact from '@/components/Contact';
+import PortfolioClient from '@/components/PortfolioClient';
 import Footer from '@/components/Footer';
 import VisitorBehaviorTracker from '@/components/VisitorBehaviorTracker';
 
@@ -20,9 +19,8 @@ export default function Home() {
       <Skills />
       <Experience />
       <Services />
-      <Portfolio />
+      <PortfolioClient />
       <AboutClient />
-      <Contact />
       <Footer />
     </div>
   );

@@ -27,6 +27,7 @@ export default function Portfolio() {
       ],
       tags: ['Next.js', 'TypeScript', 'Zustand', 'React Query', 'SSE', 'TipTap'],
       icon: 'book',
+      href: 'https://www.yiread.tech/',
     },
     {
       title: 'Next.js 全栈应用',
@@ -42,6 +43,7 @@ export default function Portfolio() {
       ],
       tags: ['Next.js', 'PostgreSQL', 'Prisma', 'JWT', 'API Routes'],
       icon: 'zap',
+      href: 'https://register-project-dj74-7w5ec0pll-jessies-projects-30765941.vercel.app/login',
     },
     {
       title: 'Weather Board - 天气仪表板',
@@ -56,6 +58,7 @@ export default function Portfolio() {
       ],
       tags: ['React', 'ECharts', 'OpenWeather API', 'Performance'],
       icon: 'cloud',
+      href: 'https://province-weather-fc7ov9402-jessies-projects-30765941.vercel.app/',
     },
   ] : [
     {
@@ -73,6 +76,7 @@ export default function Portfolio() {
       ],
       tags: ['Next.js', 'TypeScript', 'Zustand', 'React Query', 'SSE', 'TipTap'],
       icon: 'book',
+      href: 'https://www.yiread.tech/',
     },
     {
       title: 'Next.js Full-Stack Application',
@@ -88,6 +92,7 @@ export default function Portfolio() {
       ],
       tags: ['Next.js', 'PostgreSQL', 'Prisma', 'JWT', 'API Routes'],
       icon: 'zap',
+      href: 'https://register-project-dj74-7w5ec0pll-jessies-projects-30765941.vercel.app/login',
     },
     {
       title: 'Weather Board',
@@ -102,6 +107,7 @@ export default function Portfolio() {
       ],
       tags: ['React', 'ECharts', 'OpenWeather API', 'Performance'],
       icon: 'cloud',
+      href: 'https://province-weather-fc7ov9402-jessies-projects-30765941.vercel.app/',
     },
   ];
 
@@ -121,25 +127,36 @@ export default function Portfolio() {
               <div
                 key={index}
                 data-project-id={project.title}
-                className={`group flex flex-col overflow-hidden rounded-2xl border border-orange-100 bg-white transition-all duration-300 hover:scale-105 hover:border-orange-300 hover:shadow-xl ${
+                onClick={() => {
+                  if (project.href) {
+                    window.open(project.href, '_blank', 'noopener,noreferrer');
+                  }
+                }}
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-orange-100 bg-white transition-all duration-300 hover:scale-105 hover:border-orange-300 hover:shadow-xl ${
                   isExpanded ? 'h-auto' : 'h-[21.5rem] md:h-[24rem]'
-                }`}
+                } ${project.href ? 'cursor-pointer' : ''}`}
               >
                 {/* 项目头部 */}
-                <div className="h-32 bg-orange-50 flex items-center justify-center relative overflow-hidden group-hover:bg-orange-100 transition-colors">
+                <div className="relative h-32 overflow-hidden bg-orange-50 transition-colors group-hover:bg-orange-100">
                   <IconComponent
-                    className="w-12 h-12 text-orange-500 transition-transform group-hover:scale-110"
+                    className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-orange-500 transition-transform group-hover:scale-110"
                     strokeWidth={1.5}
                   />
                 </div>
 
-                <div className="flex flex-1 flex-col p-5">
+                <div className="relative flex flex-1 flex-col p-5">
                   {/* 标题和公司 */}
                   <h3 className="font-semibold mb-1 text-stone-800 group-hover:text-orange-600 transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-xs text-orange-600 mb-1">{project.company}</p>
                   <p className="text-xs text-stone-500 mb-3">{project.period}</p>
+
+                  {project.href ? (
+                    <p className="mb-3 text-xs text-orange-500 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                      {language === 'zh' ? '点击卡片跳转对应项目网页' : 'Click the card to open the project website'}
+                    </p>
+                  ) : null}
 
                   {/* 简短描述 */}
                   <p className="mb-4 text-sm leading-relaxed text-stone-600">
@@ -182,7 +199,11 @@ export default function Portfolio() {
 
                   {/* 展开/折叠按钮 */}
                   <button
-                    onClick={() => setExpandedProject(isExpanded ? null : index)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      setExpandedProject(isExpanded ? null : index);
+                    }}
                     className="mt-auto flex w-full items-center justify-center gap-1 rounded-lg py-2 text-xs font-medium text-orange-600 transition-colors hover:bg-orange-50 hover:text-orange-700"
                   >
                     {isExpanded ? (

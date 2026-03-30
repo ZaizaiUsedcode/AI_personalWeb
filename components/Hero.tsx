@@ -1,7 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
 // 动态导入 Three.js 组件，禁用 SSR
@@ -40,13 +40,6 @@ export default function Hero() {
         </p>
 
         <div className="flex justify-center gap-3 flex-wrap">
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 px-6 py-2.5 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-sm font-medium"
-          >
-            {t('联系我', 'Contact Me')}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </a>
           <a
             href={language === 'zh' ? '/resume-zh.pdf' : '/resume-en.pdf'}
             download={language === 'zh' ? 'Jessie-前端简历.pdf' : 'Jessie-Resume.pdf'}
