@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useMemo } from 'react';
+import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
@@ -13,12 +13,11 @@ type ShapeProps = {
 
 function Shape({ position, scale, color }: ShapeProps) {
   const meshRef = useRef<THREE.Mesh>(null);
-
-  // 随机旋转速度
-  const rotationSpeed = useMemo(() => ({
-    x: (Math.random() - 0.5) * 0.3,
-    y: (Math.random() - 0.5) * 0.3,
-  }), []);
+  const seed = position[0] * 12.9898 + position[1] * 78.233 + position[2] * 37.719 + scale * 11.137;
+  const rotationSpeed = {
+    x: (Math.sin(seed) * 0.5) * 0.3,
+    y: (Math.cos(seed * 1.7) * 0.5) * 0.3,
+  };
 
   useFrame((state) => {
     if (!meshRef.current) return;
@@ -54,12 +53,11 @@ function Shape({ position, scale, color }: ShapeProps) {
 }
 
 export default function FloatingShapes() {
-  // 定义3个漂浮的几何形状
-  const shapes = useMemo(() => [
+  const shapes = [
     { position: [-3, 2, -2], scale: 1.2, color: '#f97316' },
     { position: [3, -1, -3], scale: 1.5, color: '#fb923c' },
     { position: [0, 1, -4], scale: 1, color: '#fdba74' },
-  ] as const, []);
+  ] as const;
 
   return (
     <>

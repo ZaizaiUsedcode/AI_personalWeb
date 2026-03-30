@@ -1,3 +1,5 @@
+export type SiteLanguage = 'zh' | 'en';
+
 export interface VisitorBehavior {
   scrollDepth: number;
   isFastScrolling: boolean;
@@ -13,5 +15,7 @@ export interface VisitorBehaviorPayload {
   sessionId: string;
   pathname: string;
   sentAt: string;
+  language: SiteLanguage;
+  shownHints: string[];
   behavior: VisitorBehavior;
 }

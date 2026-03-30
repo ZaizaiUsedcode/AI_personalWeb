@@ -5,13 +5,11 @@ import { Canvas } from '@react-three/fiber';
 import FloatingShapes from './FloatingShapes';
 
 export default function ThreeBackground() {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
 
   useEffect(() => {
-    setIsMounted(true);
-
-    // 检测移动设备
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -22,10 +20,8 @@ export default function ThreeBackground() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // 服务端渲染时不渲染 Three.js
-  if (!isMounted) return null;
+  if (typeof window === 'undefined') return null;
 
-  // 移动端不渲染 Three.js 以优化性能
   if (isMobile) return null;
 
   return (

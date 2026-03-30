@@ -16,13 +16,15 @@ function useVisitorBehavior() {
     });
 
     const lastScrollY = useRef(0);
-    const lastScrollTime = useRef(Date.now());
+    const lastScrollTime = useRef(0);
     const visibleSectionsRef = useRef(new Set<string>());
     // Track when each section became visible so dwell time can accumulate incrementally.
     const sectionEntryTime = useRef<Record<string, number>>({});
 
     useEffect(() => {
         // Compute max scroll depth and an approximate current scroll speed.
+        lastScrollTime.current = Date.now();
+
         const onScroll = () => {
             const now = Date.now();
             const scrollY = window.scrollY;

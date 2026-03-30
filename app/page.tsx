@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
+import AboutClient from '@/components/AboutClient';
 import Background from '@/components/Background';
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
@@ -21,7 +21,7 @@ export default function Home() {
       <Experience />
       <Services />
       <Portfolio />
-      <About />
+      <AboutClient />
       <Contact />
       <Footer />
     </div>
