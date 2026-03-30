@@ -32,7 +32,6 @@ export default function About() {
   );
   const sendLabel = t('发送', 'Send');
   const sendingLabel = t('发送中...', 'Sending...');
-  const sendHint = t('按 Command/Ctrl + Enter 快速发送', 'Press Command/Ctrl + Enter to send');
   const manualErrorText = t(
     '暂时无法获取回答，请稍后再试。',
     'The assistant could not respond right now. Please try again later.'
@@ -247,8 +246,7 @@ export default function About() {
                     }
                   }}
                 />
-                <div className="mt-3 flex items-center justify-between gap-3">
-                  <p className="text-xs leading-5 text-stone-400">{sendHint}</p>
+                <div className="mt-3 flex items-center justify-end gap-3">
                   <button
                     type="button"
                     className="rounded-full bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600 disabled:cursor-not-allowed disabled:bg-orange-300"
