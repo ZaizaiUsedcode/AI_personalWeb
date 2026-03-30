@@ -1,8 +1,34 @@
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import FloatingShapes from './FloatingShapes';
+import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const THREE_CLOCK_DEPRECATION_MESSAGE =
+  'Clock: This module has been deprecated. Please use THREE.Timer instead.';
+
+if (typeof window !== 'undefined') {
+  const originalWarn = console.warn;
+
+  if (!(originalWarn as typeof console.warn & { __threeClockFiltered?: boolean }).__threeClockFiltered) {
+    const filteredWarn: typeof console.warn & { __threeClockFiltered?: boolean } = (...args) => {
+      const [firstArg] = args;
+
+      if (typeof firstArg === 'string' && firstArg.includes(THREE_CLOCK_DEPRECATION_MESSAGE)) {
+        return;
+      }
+
+      originalWarn(...args);
+    };
+
+    filteredWarn.__threeClockFiltered = true;
+    console.warn = filteredWarn;
+  }
+}
+
+const ThreeSceneCanvas = dynamic(() => import('./ThreeSceneCanvas'), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function ThreeBackground() {
   const [isMobile, setIsMobile] = useState(() =>
@@ -26,20 +52,7 @@ export default function ThreeBackground() {
 
   return (
     <div className="absolute inset-0 -z-10">
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
-        gl={{
-          antialias: false, // 禁用抗锯齿以提升性能
-          alpha: true,
-          powerPreference: 'high-performance',
-        }}
-        dpr={[1, 1.5]} // 限制设备像素比以提升性能
-        frameloop="always" // 持续渲染以实现流畅动画
-      >
-        <Suspense fallback={null}>
-          <FloatingShapes />
-        </Suspense>
-      </Canvas>
+      <ThreeSceneCanvas />
     </div>
   );
 }
